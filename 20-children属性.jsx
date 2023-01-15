@@ -1,7 +1,6 @@
 import React from 'react'
 
-
-function ListItem ({ item, delItem, children }) {
+function ListItem({ item, delItem, children }) {
   return (
     <div>
       <>
@@ -14,38 +13,33 @@ function ListItem ({ item, delItem, children }) {
   )
 }
 
-
-
-
 class App extends React.Component {
-
-  state = ({
+  state = {
     list: [
       { id: 1, name: 'this is 1', price: 11 },
       { id: 2, name: 'this is 2', price: 12 },
-      { id: 3, name: 'this is 3', price: 13 }
-    ]
-  })
+      { id: 3, name: 'this is 3', price: 13 },
+    ],
+  }
 
   delItem = (id) => {
     console.log(id)
     this.setState({
-      list: this.state.list.filter((item) => item.id !== id)
+      list: this.state.list.filter((item) => item.id !== id),
     })
   }
 
-
-  render () {
-
-
+  render() {
     return (
       <div>
-        {this.state.list.map(item => (
-          <ListItem item={item} delItem={this.delItem}>this is children</ListItem>))}
+        {this.state.list.map((item) => (
+          <ListItem item={item} delItem={this.delItem}>
+            this is children
+          </ListItem>
+        ))}
       </div>
     )
   }
 }
-
 
 export default App
