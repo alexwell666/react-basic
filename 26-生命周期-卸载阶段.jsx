@@ -1,26 +1,23 @@
 import React from 'react'
 
-
 class Test extends React.Component {
   timer = null
-  componentDidMount () {
+  componentDidMount() {
     this.timer = setInterval(() => {
-      console.log('tiemer start' + new Date())
+      console.log('tiemer start')
     }, 1000)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearInterval(this.timer)
   }
 
-  render () {
+  render() {
     return <div>test</div>
   }
 }
 
-
 class App extends React.Component {
-
   constructor() {
     super()
     console.log('constructor')
@@ -28,32 +25,27 @@ class App extends React.Component {
 
   state = {
     count: 0,
-    flag: true
+    flag: true,
   }
   clickhandler = () => {
     this.setState({
       count: this.state.count++,
-      flag: !this.state.flag
+      flag: !this.state.flag,
     })
   }
 
-
-
-  componentDidMount () {
+  componentDidMount() {
     console.log('componentDidMount')
     //一般网络请求
   }
 
-  componentDidUpdate () {
+  componentDidUpdate() {
     console.log('componentDidUpdate')
   }
 
+  componentWillUnmount() {}
 
-  componentWillUnmount () {
-
-  }
-
-  render () {
+  render() {
     console.log('render')
     return (
       <div>
@@ -64,6 +56,5 @@ class App extends React.Component {
     )
   }
 }
-
 
 export default App
